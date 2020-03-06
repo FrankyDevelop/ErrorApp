@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ErrorApp</string>
+    <string name="ventana_principal">Actividad Principal</string>
 </resources>
