@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.getstarted.errorapp"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    kotlinOptions {
+        jvmTarget="1.8"
     }
 
 }
@@ -38,6 +42,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.5'
     //firebase ui
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    //coil
+    implementation("io.coil-kt:coil:0.9.5")
     //unit testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
