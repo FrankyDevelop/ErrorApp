@@ -37,18 +37,6 @@ class FirebaseRepo {
             } */
     }
 
-    //Obtener datos
-    fun obtnerDatos(){
 
-        db.collection("Usuarios").document("Franky").get()
-            .addOnSuccessListener { documento ->
-                if(documento.exists()){
-                   val nombre:String?=documento.getString("Nombre")
-                   val descripcion:String?=documento.getString("Descripcion")
-                }else{
-                       //nada
-                }
-            }
-    }
 
 }

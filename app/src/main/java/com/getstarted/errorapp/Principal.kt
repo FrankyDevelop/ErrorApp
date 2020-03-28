@@ -35,6 +35,9 @@ class Principal : AppCompatActivity() {
         btnDatos.setOnClickListener {
             obtnerUsuaruio()
         }
+        btnLista.setOnClickListener {
+            startActivity(Intent(this,Lista::class.java))
+        }
 
     }
 

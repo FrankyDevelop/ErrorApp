@@ -46,6 +46,11 @@ dependencies {
     implementation("io.coil-kt:coil:0.9.5")
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    //Imagenes circulares
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Libreria de imagenes
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //unit testing
     implementation 'com.google.firebase:firebase-firestore:21.4.1'
     testImplementation 'junit:junit:4.12'
