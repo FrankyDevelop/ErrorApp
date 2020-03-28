@@ -53,8 +53,25 @@ class Principal : AppCompatActivity() {
         }
     }
 
-    //Obtener datos de usuario
+    //Obtener datos de usuario (En tiempo real)
     fun obtnerUsuaruio(){
+        db.collection("Usuarios").document("Franky").addSnapshotListener { Snap, err ->
+            if(err!=null){
+                Toast.makeText(this,"Valio verga wey :'v",Toast.LENGTH_SHORT).show()
+                return@addSnapshotListener
+            }
+            if(Snap !=null && Snap.exists()){
+            val nombre:String?=Snap?.getString("Nombre")
+            txtTitulo.text=nombre
+            }
+            else{
+                Toast.makeText(this,"Es neta wey? :'v",Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    /*Obtener datos del usuario
+         fun obtnerUsuaruio(){
         db.collection("Usuarios").document("Franky").get()
             .addOnSuccessListener { documento ->
                 if(documento.exists()){
@@ -66,5 +83,6 @@ class Principal : AppCompatActivity() {
                 }
             }
     }
+    */
 }
 
