@@ -13,4 +13,8 @@ class FIrebaseViewModel:ViewModel() {
         FirestoreUseCase.agregarUsuarioFirebase(nombre,descripcion)
     }
 
+    fun obtnerUsuario(){
+        FirestoreUseCase.obtnerusuarioFirebase()
+    }
+
 }

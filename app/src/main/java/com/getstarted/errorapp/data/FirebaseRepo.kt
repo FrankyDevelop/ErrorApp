@@ -7,7 +7,8 @@ class FirebaseRepo {
     //todo pasos para guardar info  #1
     //Instancia FIrestore
     val db = FirebaseFirestore.getInstance()
-     //Pasar info
+
+     //Guardar
     fun AgregarUsuario(nombre:String,descripcion:String){
         //Estructura de la coleccion
         val userHashMap = hashMapOf(
@@ -15,14 +16,39 @@ class FirebaseRepo {
             "Descripcion" to descripcion
         )
 
-        //Coleccion
-        db.collection("Usuarios")
-            .add(userHashMap).addOnCompleteListener {
+        //Coleccion con documento con nombre
+         db.collection("Usuarios").document("Franky")
+             .set(userHashMap).addOnCompleteListener {
+                 if (it.isSuccessful){
+                     //algo
+                 }else{
+                     //algo
+                 }
+             }
+
+         /* Coleccion
+
+              db.collection("Usuarios").add(userHashMap).addOnCompleteListener {
                 if (it.isSuccessful){
                     //algo
                 }else{
                     //algo
                 }
+            } */
+    }
+
+    //Obtener datos
+    fun obtnerDatos(){
+
+        db.collection("Usuarios").document("Franky").get()
+            .addOnSuccessListener { documento ->
+                if(documento.exists()){
+                   val nombre:String?=documento.getString("Nombre")
+                   val descripcion:String?=documento.getString("Descripcion")
+                }else{
+                       //nada
+                }
             }
     }
+
 }

@@ -8,12 +8,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.getstarted.errorapp.viewmodel.FIrebaseViewModel
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_principal.*
 
 class Principal : AppCompatActivity() {
 
     private lateinit var viewModel: FIrebaseViewModel
 
+    //Instancia FIrestore
+    val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
@@ -26,6 +30,10 @@ class Principal : AppCompatActivity() {
 
         btnAddProject.setOnClickListener {
             crearUsuario()
+        }
+
+        btnDatos.setOnClickListener {
+            obtnerUsuaruio()
         }
 
     }
@@ -41,6 +49,22 @@ class Principal : AppCompatActivity() {
             viewModel.crearUsuario(nombre,descripcion)
             Toast.makeText(this,"Usuario guardado exitosamente",Toast.LENGTH_SHORT).show()
         }else{
+            //nada
         }
     }
+
+    //Obtener datos de usuario
+    fun obtnerUsuaruio(){
+        db.collection("Usuarios").document("Franky").get()
+            .addOnSuccessListener { documento ->
+                if(documento.exists()){
+                    val nombre:String?=documento.getString("Nombre")
+                   txtTitulo.text=nombre
+
+                }else{
+                    Toast.makeText(this,"Nell prro",Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 }
+

@@ -9,4 +9,8 @@ class FirebaseUseCase {
     fun agregarUsuarioFirebase(nombre:String,descripcion:String){
         repo.AgregarUsuario(nombre,descripcion)
     }
+
+    fun obtnerusuarioFirebase(){
+        repo.obtnerDatos()
+    }
 }
