@@ -52,11 +52,27 @@ class Principal : AppCompatActivity() {
             viewModel.crearUsuario(nombre,descripcion)
             Toast.makeText(this,"Usuario guardado exitosamente",Toast.LENGTH_SHORT).show()
         }else{
-            //nada
+            Toast.makeText(this,"No se pudo guardar",Toast.LENGTH_SHORT).show()
         }
     }
 
     //Obtener datos de usuario (En tiempo real)
+    fun obtnerUsuaruio(){
+        db.collection("Usuarios").document("Franky").get()
+            .addOnSuccessListener { documento ->
+                if(documento.exists()){
+                    val nombre:String?=documento.getString("Nombre")
+                    txtTitulo.text=nombre
+
+                }else{
+                    Toast.makeText(this,"Nell prro",Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    /*Obtener datos del usuario
+
+
     fun obtnerUsuaruio(){
         db.collection("Usuarios").document("Franky").addSnapshotListener { Snap, err ->
             if(err!=null){
@@ -71,20 +87,6 @@ class Principal : AppCompatActivity() {
                 Toast.makeText(this,"Es neta wey? :'v",Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    /*Obtener datos del usuario
-         fun obtnerUsuaruio(){
-        db.collection("Usuarios").document("Franky").get()
-            .addOnSuccessListener { documento ->
-                if(documento.exists()){
-                    val nombre:String?=documento.getString("Nombre")
-                   txtTitulo.text=nombre
-
-                }else{
-                    Toast.makeText(this,"Nell prro",Toast.LENGTH_SHORT).show()
-                }
-            }
     }
     */
 }

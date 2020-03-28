@@ -1,6 +1,5 @@
 package com.getstarted.errorapp.adaptador
 
-import android.content.ClipData
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +17,7 @@ class PrincipalAdapter(private val context:Context):RecyclerView.Adapter<Princip
     //#3 setamos los datos
     private var dataList= mutableListOf<UsuarioModel>()
 
-    fun setListData(data:MutableList<UsuarioModel>){
+    fun setListData(data: MutableList<UsuarioModel>){
         dataList=data
     }
     //#1 se configura esto
