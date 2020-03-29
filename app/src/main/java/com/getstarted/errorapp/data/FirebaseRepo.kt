@@ -12,7 +12,7 @@ class FirebaseRepo {
     fun AgregarUsuario(nombre:String,descripcion:String){
         //Estructura de la coleccion
         val userHashMap = hashMapOf(
-            "Nombre" to nombre,
+            "Nombre " to nombre,
             "Descripcion" to descripcion
         )
 
